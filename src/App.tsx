@@ -11,6 +11,7 @@ const playBackgroundMusic = () => {
 
   const notes = [261.63, 329.63, 392.00, 523.25, 392.00, 329.63, 293.66, 261.63];
   const noteDuration = 0.55;
+  const totalDuration = notes.length * noteDuration * 1000;
 
 
   const playLoop = () => {
@@ -55,7 +56,7 @@ const playBackgroundMusic = () => {
         harmOsc.stop(startTime + noteDuration);
       });
 
-
+      setTimeout(playLoop, totalDuration);
 
     } catch (e) {
       console.log('Audio not available');
@@ -514,10 +515,10 @@ const Game2 = ({ onComplete }: { onComplete: () => void }) => {
         <ProgressBar currentStep={2} />
 
         <h2 className="text-3xl text-center mb-1 doodle-text">
-          You have my heart
+          You already have my heart
         </h2>
         <p className="text-sm text-center mb-4 text-gray-400 italic">
-          can I have yours too?
+          can I hold yours too?
         </p>
 
         {!showSuccess ? (
@@ -642,7 +643,7 @@ const Game2 = ({ onComplete }: { onComplete: () => void }) => {
           </>
         ) : (
           <div className="text-center py-8 fade-in">
-            <p className="text-base text-gray-500 mt-2">untukmu hatiku, untukku hatimu heheh 💕 </p>
+            <p className="text-base text-gray-500 mt-2">heheh 💕 </p>
 
           </div>
         )}
@@ -670,6 +671,7 @@ const FinalMessage = () => {
             <br />
             Semoga yang kita jaga dalam hati, dijaga semesta juga.
           </p>
+
           <br />
         </div>
 

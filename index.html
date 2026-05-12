@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy 5</title>
   <meta property="og:title" content="Hehhehheh klik ini sayang" />
@@ -12,7 +11,26 @@
   <meta property="og:image" content="https://5mo.piadam.site/assets/transpa.png" />
   <meta property="og:image:width" content="1" />
   <meta property="og:image:height" content="1" />
-  <meta property="og:description" content="" />
+  <meta property="og:description" content="🤍🖤" />
+
+  <script>
+    var redirect = sessionStorage.getItem('redirect');
+    if (redirect) {
+      sessionStorage.removeItem('redirect');
+      window.history.replaceState(null, null, redirect);
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1HJ72XBPV1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-1HJ72XBPV1', {
+      anonymize_ip: false,
+      allow_ad_personalization_signals: false
+    });
+  </script>
 
 </head>
 
