@@ -204,13 +204,17 @@ const IntroPopup = ({ onStart }: { onStart: () => void }) => {
               <div className="space-y-4 fade-in">
                 {/* <p className="text-base text-gray-600">ada sesuatu untuk kamu...</p> */}
                 <img src="assets/cat5.gif" alt="" width="40%" className="mx-auto" />
-                <br />
+
                 <button
                   onClick={handleStart}
-                  className="doodle-border px-4 py-1 text-base bg-white hover:bg-gray-200 transition-all duration-500 heartbeat"
+                  className="doodle-border px-4 py-1 text-base bg-white hover:bg-gray-200 transition-all duration-500"
                 >
-                  sini yang 👆
+                  click me
                 </button>
+
+                <p className="text-bold text-red-500 text-[11px] mt-2 pulse">
+                  ⚠️ CRINGE ALERT!!!
+                </p>
               </div>
             )
 
@@ -241,7 +245,7 @@ const Game1 = ({ onComplete }: { onComplete: () => void }) => {
   const [showAngry, setShowAngry] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const targetText = 'saya Sophia bersumpah hanya mencintai Adam seorang';
+  const targetText = 'saya Sophia cuma mau dan cuma cinta sama Adam';
   const targetTextLower = targetText.toLowerCase();
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -297,7 +301,7 @@ const Game1 = ({ onComplete }: { onComplete: () => void }) => {
 
             <div className="bg-gray-100 p-4 rounded-lg mb-4 text-center">
               <p className="text-lg font-bold text-gray-800">
-                "saya Sophia bersumpah hanya mencintai Adam seorang"
+                "saya Sophia cuma mau dan cuma cinta sama Adam"
               </p>
             </div>
 
@@ -643,7 +647,7 @@ const Game2 = ({ onComplete }: { onComplete: () => void }) => {
           </>
         ) : (
           <div className="text-center py-8 fade-in">
-            <p className="text-base text-gray-500 mt-2">heheh 💕 </p>
+            <p className="text-base text-gray-500 mt-2">Hehe makasih 💕 </p>
 
           </div>
         )}
