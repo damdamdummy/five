@@ -2,8 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 
 type GameState = 'intro' | 'game1' | 'game2' | 'complete';
 
-let bgAudioContext: AudioContext | null = null;
-let bgLoopTimeout: ReturnType<typeof setTimeout> | null = null;
+
 let bgPlaying = false;
 
 const playBackgroundMusic = () => {
@@ -12,13 +11,13 @@ const playBackgroundMusic = () => {
 
   const notes = [261.63, 329.63, 392.00, 523.25, 392.00, 329.63, 293.66, 261.63];
   const noteDuration = 0.55;
-  const loopDuration = notes.length * noteDuration * 1000;
+
 
   const playLoop = () => {
     if (!bgPlaying) return;
     try {
       const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
-      bgAudioContext = ctx;
+
 
 
       const masterGain = ctx.createGain();
@@ -57,10 +56,7 @@ const playBackgroundMusic = () => {
       });
 
 
-      bgLoopTimeout = setTimeout(() => {
-        try { ctx.close(); } catch (e) { }
-        playLoop();
-      }, loopDuration - 100);
+
     } catch (e) {
       console.log('Audio not available');
     }
@@ -182,12 +178,9 @@ const Confetti = () => {
 
 
 const IntroPopup = ({ onStart }: { onStart: () => void }) => {
-  const [showOptions, setShowOptions] = useState(false);
+  const [showOptions] = useState(false);
 
-  const handleClick = () => {
-    playSound('start');
-    setShowOptions(true);
-  };
+
 
   const handleStart = () => {
     playSound('start');
@@ -204,15 +197,7 @@ const IntroPopup = ({ onStart }: { onStart: () => void }) => {
           </p>
 
           {!showOptions ?
-            // (
 
-            //     <button
-            //         onClick={handleClick}
-            //         className="doodle-border px-8 py-4 text-2xl bg-white hover:bg-gray-100 transition-all duration-200 wobble hover:scale-105"
-            //     >
-            //         klik sini dong 👆
-            //     </button>
-            // ) 
 
             (
               <div className="space-y-4 fade-in">
@@ -487,7 +472,7 @@ const Game2 = ({ onComplete }: { onComplete: () => void }) => {
 
   const knobLeft = `calc(${pct * 100}% - 22px)`;
 
-  const sophiaWhiteOpacity = Math.max(0, 1 - pct * 1.1);
+
 
   const adamBrokenOpacity = Math.max(0, 1 - pct * 2.5);
   const adamWhiteOpacity = pct > 0.6 ? Math.min(1, (pct - 0.6) / 0.4) : 0;
